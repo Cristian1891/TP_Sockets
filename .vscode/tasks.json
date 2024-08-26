@@ -1,0 +1,87 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build Server",
+        "type": "shell", 
+        "command": "gcc",
+        "args": [
+          "server/sources/server.c",
+          "server/sources/socket_server.c",
+          "server/sources/generator.c",
+          "-o",
+          "server/server.exe",
+          "-I", "server/headers",
+          "-lws2_32"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"]
+      },
+      {
+        "label": "Build Client",
+        "type": "shell",
+        "command": "gcc",
+        "args": [
+          "client_c/sources/client.c",
+          "client_c/sources/socket_client.c",
+          "client_c/sources/utils.c",
+          "-o",
+          "client_c/client.exe",
+          "-I", "client_c/headers",
+          "-lws2_32"
+        ],
+        "group": "build",
+        "problemMatcher": ["$gcc"]
+      },
+      {
+        "label": "Run Server",
+        "type": "shell",
+        "command": "${workspaceFolder}/server/server.exe",
+        "dependsOn": "Build Server",
+        "group": "test",
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "Run Client",
+        "type": "shell",
+        "command": "${workspaceFolder}/client_c/client.exe",
+        "dependsOn": "Build Client",
+        "group": "test",
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "Build and Run Server",
+        "dependsOn": ["Build Server", "Run Server"],
+        "group": "build"
+      },
+      {
+        "label": "Build and Run Client",
+        "dependsOn": ["Build Client", "Run Client"],
+        "group": "build"
+      },
+      {
+        "label": "Run Python Client",
+        "type": "shell",
+        "command": "python",
+        "args": [
+            "${workspaceFolder}/client_py/client.py"
+        ],
+        "group": "test",
+        "presentation": {
+            "reveal": "always",
+            "panel": "new"
+        }
+      }
+    ]
+}
