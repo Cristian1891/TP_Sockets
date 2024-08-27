@@ -25,5 +25,5 @@
 
 ### ___Links adicionales___:
 1. [Estrategia de resolucion del trabajo practico](https://drive.google.com/drive/folders/1QXDNYs5_3UzR48Q8YUFM7M6KVptiZl8m?usp=sharing)
-2. [Video con pruebas realizadas](https://drive.google.com/drive/folders/1QXDNYs5_3UzR48Q8YUFM7M6KVptiZl8m?usp=sharing)
+2. [Video con pruebas realizadas](https://youtu.be/q9pPhZXkHyA)
 3. [Pruebas realizadas con capturas de pantalla](https://drive.google.com/drive/folders/1QXDNYs5_3UzR48Q8YUFM7M6KVptiZl8m?usp=sharing)
